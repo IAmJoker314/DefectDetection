@@ -64,7 +64,7 @@ public class DeviceDetectController {
             /**依次获取三张图片**/
             int first,second,third = 0;
             first = imageIndex;
-            if(imageIndex == + - 1){
+            if(imageIndex == count - 1){
                 second = 0;
                 third = 1;
             }else if(imageIndex == count - 2){
@@ -110,8 +110,9 @@ public class DeviceDetectController {
      */
     @RequestMapping(value = "/getData",method = RequestMethod.POST)
     public ResponseBean getData(){
-        String url = BASE_URL + "search/image";
-        HttpHeaders headers = buildRequestHeaders(url);
+        //这两句没用吗?
+        /*String url = BASE_URL + "search/image";
+        HttpHeaders headers = buildRequestHeaders(url);*/
         Map<String,Object> resultMap = new HashMap<>();
 
         try{
