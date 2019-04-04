@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxiip.dao.ImageVisionMapper">
+    <resultMap id="resultMapper" type="com.wxiip.domain.ImageVision">
+        <id     column="id"                           property="id"/>
+        <result column="img_name"                    property="imgName"/>
+        <result column="accuracy"                    property="accuracy"/>
+        <result column="top_left_x"                  property="topLeftX"/>
+        <result column="top_left_y"                  property="topLeftY"/>
+        <result column="bot_right_x"                 property="botRightX"/>
+        <result column="bot_right_y"                 property="botRightY"/>
+    </resultMap>
+
+    <select id="query" resultMap="resultMapper">
+        select * from image_defects where 1=1
+        <if test = "id != null and id != 0">
+            and id = #{id}
+        </if>
+        <if test = "imgName != null and imgName != ''">
+            and img_name = #{imgName}
+        </if>
+    </select>
+</mapper>
